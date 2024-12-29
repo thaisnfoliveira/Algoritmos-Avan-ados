@@ -1,14 +1,14 @@
-n = int(input()) 
-chat_list = [] 
-seen = set()
+n = int(input())
+conversas = []
+amigos = set()
 
 for i in range(n):
-    friend = input().strip()
-    if friend in seen:
-        chat_list.remove(friend) 
+    msg = input()
+    if msg not in amigos:
+        conversas.append(msg)
+        amigos.add(msg)
     else:
-        seen.add(friend) 
-    chat_list.append(friend)
-
-
-print("\n".join(reversed(chat_list)))
+        conversas.remove(msg)
+        conversas.append(msg)
+conversas.reverse()
+print("\n".join(conversas))
